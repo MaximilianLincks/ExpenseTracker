@@ -4,7 +4,7 @@ import ExpeseItem from "./ExpenseItem";
 
 import "./styles/Expenses.css"
 
-function Expenses() {
+const Expenses = () => {
   return (
     <Card className="expenses">
       {expenses.map((exp) => (

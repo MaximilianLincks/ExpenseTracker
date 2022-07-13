@@ -5,7 +5,7 @@ import Card from "../UI/Card";
 
 type expense = { id: string; title: string; amount: number; date: Date };
 
-function ExpeseItem(props: { expense: expense }) {
+const ExpeseItem = (props: { expense: expense }) => {
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.expense.date} />
