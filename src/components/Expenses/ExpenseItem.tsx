@@ -7,7 +7,6 @@ import { enrichedExpense } from "../NewExpense/NewExpense";
 
 const ExpeseItem = (props: { expense: enrichedExpense }) => {
   const [title, setTitle] = useState(props.expense.title);
-  const clickHandler = () => setTitle("Updated");
 
   return (
     <Card className="expense-item">
