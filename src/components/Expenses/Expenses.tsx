@@ -6,7 +6,7 @@ import ExpenseItem from "./ExpenseItem";
 
 import "./styles/Expenses.css";
 
-const Expenses = (props: {expenses: enrichedExpense[]}) => {
+const Expenses = (props: { items: enrichedExpense[] }) => {
   const [filterValue, setFilterValue] = useState("2020");
 
   const onFilterChangeHandler: (
@@ -18,8 +18,11 @@ const Expenses = (props: {expenses: enrichedExpense[]}) => {
 
   return (
     <Card className="expenses">
-      <ExpensesFilter selected={filterValue} onFilterChange={onFilterChangeHandler} />
-      {props.expenses.map((exp) => (
+      <ExpensesFilter
+        selected={filterValue}
+        onFilterChange={onFilterChangeHandler}
+      />
+      {props.items.map((exp) => (
         <ExpenseItem key={exp.id} expense={exp} />
       ))}
     </Card>
