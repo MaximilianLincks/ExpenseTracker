@@ -1,6 +1,7 @@
 import "./styles/ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "./Card";
+import Card from "../UI/Card";
+
 
 type expense = { id: string; title: string; amount: number; date: Date };
 
