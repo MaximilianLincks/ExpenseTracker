@@ -1,20 +1,23 @@
 import "./styles/ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
+import { useState } from "react";
+import { enrichedExpense } from "../NewExpense/NewExpense";
 
 
-type expense = { id: string; title: string; amount: number; date: Date };
+const ExpeseItem = (props: { expense: enrichedExpense }) => {
+  const [title, setTitle] = useState(props.expense.title);
+  const clickHandler = () => setTitle("Updated");
 
-function ExpeseItem(props: { expense: expense }) {
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.expense.date} />
       <div className="expense-item__description">
-        <h2>{props.expense.title}</h2>
+        <h2>{title}</h2>
         <div className="expense-item__price">{props.expense.amount}€</div>
       </div>
     </Card>
   );
-}
+};
 
 export default ExpeseItem;
