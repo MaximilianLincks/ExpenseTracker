@@ -1,8 +1,8 @@
 import "./styles/ExpenseFilter.css";
 
 const ExpensesFilter = (props: {
-  onFilterChange: (e: React.FormEvent<HTMLSelectElement>) => void,
-  selected: string
+  onFilterChange: (e: React.FormEvent<HTMLSelectElement>) => void;
+  selected: string;
 }) => {
   return (
     <div className="expenses-filter">

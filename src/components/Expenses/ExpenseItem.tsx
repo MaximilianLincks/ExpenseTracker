@@ -4,7 +4,6 @@ import Card from "../UI/Card";
 import { useState } from "react";
 import { enrichedExpense } from "../NewExpense/NewExpense";
 
-
 const ExpeseItem = (props: { expense: enrichedExpense }) => {
   const [title, setTitle] = useState(props.expense.title);
 
