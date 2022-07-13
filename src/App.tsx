@@ -9,7 +9,7 @@ const App = () => {
   const [expenses, setExpenses] = useState(defaultExpenses);
 
   const addExpenseHandler: (expenseData: enrichedExpense) => void = (data) => {
-    setExpenses((prev) => [...prev, data]);
+    setExpenses((prev) => [data,...prev]);
   };
 
   return (
