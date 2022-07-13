@@ -1,13 +1,7 @@
-import ExpeseItem from "./components/ExpenseItem";
-import expenses from "./data/expenses";
+import Expenses from "./components/Expenses";
 
 function App() {
-  return (
-    <>
-      <h2>Let's get started!</h2>
-      {expenses.map(expense => <ExpeseItem expense={expense} />)}
-    </>
-  );
+  return <Expenses />;
 }
 
 export default App;
