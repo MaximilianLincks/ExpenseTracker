@@ -1,11 +1,14 @@
 import Expenses from "./components/Expenses/Expenses";
-import NewExpense from "./components/NewExpense/NewExpense";
+import NewExpense, { enrichedExpense } from "./components/NewExpense/NewExpense";
+import expenses from "./data/expenses";
 
 const App = () => {
+  const addExpenseHandler: (expenseData: enrichedExpense) => void = (data) => {};
+
   return (
     <>
-      <Expenses />
-      <NewExpense />
+      <Expenses expenses={expenses}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
     </>
   );
 };

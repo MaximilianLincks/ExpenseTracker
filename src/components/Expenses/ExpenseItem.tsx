@@ -2,10 +2,10 @@ import "./styles/ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import { useState } from "react";
+import { enrichedExpense } from "../NewExpense/NewExpense";
 
-type expense = { id: string; title: string; amount: number; date: Date };
 
-const ExpeseItem = (props: { expense: expense }) => {
+const ExpeseItem = (props: { expense: enrichedExpense }) => {
   const [title, setTitle] = useState(props.expense.title);
   const clickHandler = () => setTitle("Updated");
 

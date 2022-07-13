@@ -1,14 +1,15 @@
-import expenses from "../../data/expenses";
+
+import { enrichedExpense } from "../NewExpense/NewExpense";
 import Card from "../UI/Card";
-import ExpeseItem from "./ExpenseItem";
+import ExpenseItem from "./ExpenseItem";
 
 import "./styles/Expenses.css";
 
-const Expenses = () => {
+const Expenses = (props: {expenses: enrichedExpense[]}) => {
   return (
     <Card className="expenses">
-      {expenses.map((exp) => (
-        <ExpeseItem key={exp.id} expense={exp} />
+      {props.expenses.map((exp) => (
+        <ExpenseItem key={exp.id} expense={exp} />
       ))}
     </Card>
   );
