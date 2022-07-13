@@ -3,7 +3,9 @@ import NewExpense, { enrichedExpense } from "./components/NewExpense/NewExpense"
 import expenses from "./data/expenses";
 
 const App = () => {
-  const addExpenseHandler: (expenseData: enrichedExpense) => void = (data) => {};
+  const addExpenseHandler: (expenseData: enrichedExpense) => void = (data) => {
+    console.log(data);
+  };
 
   return (
     <>
