@@ -6,22 +6,30 @@ import ExpenseItem from "./ExpenseItem";
 import arrayRange from "../../utility/ArrayRange";
 
 import "./styles/Expenses.css";
-
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props: { items: enrichedExpense[] }) => {
+  const years = props.items.map((exp) => exp.date.getFullYear());
 
-  let years = props.items.map(exp => exp.date.getFullYear());
+  const minYears = Math.min(...years);
+  const maxYears = Math.max(...years);
+
+  //conatians all Years between min(years) and max(years)
+  const availableYears =
+    years.length > 0
+      ? arrayRange(minYears, (n: number) => n + 1, maxYears - minYears + 1).map(
+          (n: number) => n.toString()
+        )
+      : [];
+
+  const [filterValue, setFilterValue] = useState(
+    years.length > 0 ? maxYears.toString() : new Date().getFullYear().toString()
+  );
+
+  const filteredExpenses = props.items.filter(
+    (exp) => exp.date.getFullYear().toString() === filterValue
+  );
   
-  let minYears = Math.min(...years);
-  let maxYears = Math.max(...years);
-
-  let available = years.length > 0 
-    ? (arrayRange(minYears,(n:number) => n+1,maxYears-minYears+1)).map((n:number) => n.toString()) 
-    : [];
-
-
-  const [filterValue, setFilterValue] = useState(years.length > 0 ? maxYears.toString() : new Date().getFullYear().toString());
-
   const onFilterChangeHandler: (
     e: React.FormEvent<HTMLSelectElement>
   ) => void = (e) => {
@@ -31,17 +39,12 @@ const Expenses = (props: { items: enrichedExpense[] }) => {
   return (
     <Card className="expenses">
       <ExpensesFilter
-        available={available}
+        available={availableYears}
         selected={filterValue}
         onFilterChange={onFilterChangeHandler}
       />
-      {props.items
-      .filter((exp) => exp.date.getFullYear().toString() === filterValue)
-      .map((exp) => (
-        <ExpenseItem key={exp.id} expense={exp} />
-      ))}
+      <ExpensesList items={filteredExpenses}/>
     </Card>
   );
 };
 export default Expenses;
-
