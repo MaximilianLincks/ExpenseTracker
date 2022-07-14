@@ -2,11 +2,11 @@ import { useState } from "react";
 import { enrichedExpense } from "../NewExpense/NewExpense";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpenseFilter";
-import ExpenseItem from "./ExpenseItem";
 import arrayRange from "../../utility/ArrayRange";
 
 import "./styles/Expenses.css";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = (props: { items: enrichedExpense[] }) => {
   const years = props.items.map((exp) => exp.date.getFullYear());
@@ -43,6 +43,7 @@ const Expenses = (props: { items: enrichedExpense[] }) => {
         selected={filterValue}
         onFilterChange={onFilterChangeHandler}
       />
+      <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses}/>
     </Card>
   );
