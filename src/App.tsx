@@ -1,15 +1,21 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
-import NewExpense, { enrichedExpense } from "./components/NewExpense/NewExpense";
-import expenses from "./data/expenses";
+import NewExpense, {
+  enrichedExpense,
+} from "./components/NewExpense/NewExpense";
+import defaultExpenses from "./data/expenses";
 
 const App = () => {
+  const [expenses, setExpenses] = useState(defaultExpenses);
+
   const addExpenseHandler: (expenseData: enrichedExpense) => void = (data) => {
-    console.log(data);
+    setExpenses((prev) => [data,...prev]);
   };
 
   return (
     <>
-      <Expenses expenses={expenses}/>
+      <Expenses items={expenses} />
+
       <NewExpense onAddExpense={addExpenseHandler} />
     </>
   );
