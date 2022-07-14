@@ -5,13 +5,15 @@ const ChartBar = (props: {
   maxValue: number;
   label: string;
 }) => {
-
-    const fillHeight = (props.maxValue === 0 ? 0 : Math.round((props.value / props.maxValue) * 100)) + "%";
+  const fillHeight =
+    (props.maxValue === 0
+      ? 0
+      : Math.round((props.value / props.maxValue) * 100)) + "%";
 
   return (
     <div className="chart-bar">
       <div className="chart-bar__inner">
-        <div className="chart-bar__fill" style={{height: fillHeight}}></div>
+        <div className="chart-bar__fill" style={{ height: fillHeight }}></div>
       </div>
       <div className="chart-bar__label">{props.label}</div>
     </div>

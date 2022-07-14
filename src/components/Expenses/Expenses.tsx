@@ -29,7 +29,7 @@ const Expenses = (props: { items: enrichedExpense[] }) => {
   const filteredExpenses = props.items.filter(
     (exp) => exp.date.getFullYear().toString() === filterValue
   );
-  
+
   const onFilterChangeHandler: (
     e: React.FormEvent<HTMLSelectElement>
   ) => void = (e) => {
@@ -44,7 +44,7 @@ const Expenses = (props: { items: enrichedExpense[] }) => {
         onFilterChange={onFilterChangeHandler}
       />
       <ExpensesChart expenses={filteredExpenses} />
-      <ExpensesList items={filteredExpenses}/>
+      <ExpensesList items={filteredExpenses} />
     </Card>
   );
 };

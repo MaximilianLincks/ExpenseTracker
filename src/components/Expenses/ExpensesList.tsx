@@ -7,7 +7,7 @@ const ExpensesList = (props: { items: enrichedExpense[] }) => {
     return <h2 className="expenses-list__fallback">No expenses found</h2>;
 
   return (
-    <ul className="expenses-List" style={{listStyle: "none"}}>
+    <ul className="expenses-List" style={{ listStyle: "none" }}>
       {props.items.map((exp) => (
         <ExpenseItem key={exp.id} expense={exp} />
       ))}
